@@ -17,4 +17,12 @@ app.use("/theaters", theatersRouter);
 app.use(notFound);
 app.use(errorHandler);
 
+const router = express.Router()
+
+router.get("/", cors(), (req, res) => {
+  res.json({ message: "Data can be access via the following routes: /movies, /movies/:movieId, /movies/:movieId/theaters, /movies/:movieId/reviews, /reviews, /reviews/:reviewId, and /theaters"});
+});
+
+app.use('/', router);
+
 module.exports = app;
