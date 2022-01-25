@@ -12,3 +12,15 @@ knex.migrate
     app.listen(PORT, listener);
   })
   .catch(console.error);
+
+
+const express = require("express")
+const app = express()
+const cors = require('cors')
+const router = express.Router()
+
+router.get("/", cors(), (req, res) => {
+  res.json({ message: "Data can be access via the following routes: /movies, /movies/:movieId, /movies/:movieId/theaters, /movies/:movieId/reviews, /reviews, /reviews/:reviewId, and /theaters"});
+});
+
+module.exports = app
